@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="../static/stylehackathon.css">
+
+    <!--    FAVICON-->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+</head>
+<body class="back" background="../static/banglore5.jpg">
+    <wrapper>
+        
+        <div class="title">
+            <h4 style="text-align: center;">
+                3rd TECHNOVATION HACKATHON-SHARDA UNIVERSITY <BR> REAL ESTATE PRICE PREDICTION USING ML
+            </h4>
+        </div>
+        <br><br>
+
+        
+        <div class="boxform">
+            <!-- FORM HERE -->
+            <form method="post" action="/">
+                <label form="sqft" >Area(Sq.ft) <br><br></label>
+                <input type="number" required id="sqft" name="sqft" value="1000" placeholder="Enter area in sqft: 2000"> <br><br>
+
+                
+                <label form="bhk" >BHK <br></label>
+                <!-- <input type="number" id="bhk" name="bhk" placeholder="Ex. 3 bhk"> <br><<br><br> -->
+                <input type="radio" id="bath" name="bhk" value="1">1</input>
+                <input type="radio" id="bath" name="bhk" value="2" checked>2</input>
+                <input type="radio" id="bath" name="bhk" value="3">3</input>
+                <input type="radio" id="bath" name="bhk" value="4">4</input>
+                <input type="radio" id="bath" name="bhk" value="5">5</input>
+                <br><br>
+                
+                <label form="bath"  >Bathroom <br></label>
+                <!-- <input type="number" id="bath" name="bath" placeholder="Ex. 2"> -->
+                <input type="radio" id="bath" name="bath" value="1">1</input>
+                <input type="radio" id="bath" name="bath" value="2" checked>2</input>
+                <input type="radio" id="bath" name="bath" value="3">3</input>
+                <input type="radio" id="bath" name="bath" value="4">4</input>
+                <input type="radio" id="bath" name="bath" value="5">5</input>
+<!--                <input type="radio" id="bath" name="bath" value="{{checked_bath}}" checked>{{checked_bath}}</input>-->
+                <br><br>
+
+
+
+                <label form="location" >Location <br><br></label>
+                <!-- <input type="text" id="location" name="location" placeholder="Ex. whitefield"> <br><br><br> -->
+                <select name="location" required>
+                    {% if checked_location %}
+                        <option>{{checked_location}}</option>
+                    {% endif %}
+                    {% for i in locations %}
+                        <option > {{i}} </option>
+                    {% endfor %}
+
+
+
+
+<!--                    <option>whitefield</option>-->
+<!--                    &lt;!&ndash; <option selected>kothanur</option> &ndash;&gt;-->
+<!--                    &lt;!&ndash; <option>shivaji nagar</option> &ndash;&gt;-->
+<!--                    <option>1st block jayanagar</option>-->
+<!--                    <option>Domlur</option>-->
+                </select>
+                <br><br>
+                
+                
+                <label form="submit"  ></label>
+                <input class="button" type="submit" id="submit" value="Estimate Price" >
+    <!--            <output>Estimated Price</output><br>-->
+                
+                <!-- PREDICTION DONE HERE -->
+                {% if predicted_price %}
+                <br><br><h1 style="font-size: 1.8rem; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    color: rgb(255, 255, 255);">Predicted Price<br>{{predicted_price}} Lakhs<br>
+                    <br>Price per sqft<br> {{price_sqft}}K</h1>
+                
+
+
+            </form>
+            <br><br><br><br><br>
+                    <div class="card">
+                        <br><br>
+                        <h1 style="color: white;">Recommendations for {{checked_location}}</h1>
+                        <br><br>
+
+                        
+                        <div class="card1">
+                            <img src="../static/img2.jpg" alt="realestate">
+                            <div class="info">
+                                <h4> Ganapati Vihar,{{checked_location}}</h4>
+                                <p>
+                                    <b>Your way to a new Home</b>
+                                    <br><b>Amenities:</b> Jogging track, Temple, Cafetaria
+                                    <br><b>Starting at:</b> {{predicted_price + 3}}lakhs onwards 
+                                </p>
+                            </a>
+                            </div>
+                        </div>
+
+                        <div class="card1">
+                            <img src="../static/img1.jpg" alt="realestate">
+                            <div class="info"><br>
+                                <h4> <b>Blue Ridge,{{checked_location}}</b></h4><br>
+                                <p>
+                                    <b>Give your life a new living with Ganpati Vihar</b><br>
+                                    <br><b>Amenities:</b> Swimming pool, Gym, Open theatre<br>
+                                    <br><b>Starting at:</b> {{predicted_price - 2}}lakhs onwards
+                                </p>
+                            </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card1">
+                            <img src="../static/img3.jpg" alt="realestate">
+                            <div class="info"></div><br>
+                                <h4> Townhall Spira,{{checked_location}}</h4><br>
+                                <p>
+                                    <b>Make a new start of your life at  Townhall Spira</b><br>
+                                    <br><b> Amenities:</b> Swimming pool, gym, parking<br>
+                                    <br><b>Starting at:</b> {{predicted_price}}lakhs onwards
+                                </p>
+                            </a>
+                            </div>
+                        </div>
+
+
+                    
+                    </div>
+
+
+                {% endif %}
+
+
+        </div>
+
+
+        <br><br><br>
+
+        <!-- ABOUT SECTION HERE -->
+        <div style="background-color:rgb(47, 155, 255); height: fit-content; width: 100vw;opacity: 90%; box-shadow: 0px 15px 25px  rgb(0, 0, 0);">
+            <br><br>
+            <h1 style="text-align: center; color: rgb(255, 255, 255);font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            ">About Project</h1><br>
+            <p style="padding: 40px;line-height: 35px; padding-top:20px;text-align: justify; color: rgb(255, 255, 255);font-size:1.7rem;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                Banglore House Price Prediction as the name tells this project predicts the price houses
+                located in different localities of banglore with a Machine Learning model which has been trained 
+                over a dataset available on kaggle.
+                We have managed out how to prepare a model that gives users for a novel best approach with take a gander at future lodging value predictions.It also help user to buy real estaste on the basis of  locations by which users will have more choices Moreover, our data set takes more than one day should prepare. As opposed performing the computations sequentially, we might utilize various processors and parallel the computations involved, which might possibly decrease the preparation time Furthermore prediction period. Include All the more functionalities under the model, we can give choices for client with select a district alternately locale should produce those high temperature maps, as opposed to entering in the list.
+            </p>
+
+            
+        </div>
+        <br><br><br>
+
+        <div class="faq-poster"><br>
+            <h1 style="text-align: center;color: white;">FAQ</h1><br>
+
+            <div class="faq">
+                <p style="font-size: 1.5rem;">
+                    What is the motive behind this project?<br>
+                </p>
+                <p>
+                    To solve real estate problems with modern AI/ML solutions. To make Citizens work effortless.
+                </p>
+            </div>
+
+            <div class="faq">
+                <p style="font-size: 1.5rem;">
+                    Do I have to create an account to use this website?<br>
+                </p>
+                <p>
+                    No. You can search for properties on the site without creating an account or registering with Us.
+                </p>
+            </div>
+
+            <div class="faq">
+                <p style="font-size: 1.5rem;">
+                    Does it gives exact values of property in real time?<br>
+                </p>
+                <p>
+                    It gives approximate value generated by ML Model, based on previous trends.
+                </p>
+            </div>
+
+            <div class="faq">
+                <p style="font-size: 1.5rem;">
+                    In which cities do you offer your services?<br>
+                </p>
+                <p>
+                    Currently only for Banglore. We can make for other cities if dataset is made available.
+                </p>
+            </div>
+
+            <div class="faq">
+                <p style="font-size: 1.5rem;">
+                    What kind of properties prices are listed on your website?<br>
+                </p>
+                <p>
+                    We list a range of residential real estate properties including apartments, villas and plots through our web platform.
+                </p>
+            </div>
+
+            <div class="faq">
+                <p style="font-size: 1.5rem;">
+                    Are these current year prices? ?<br>
+                </p>
+                <p>
+                    Yes these real estate prices are of FY20-21.
+                </p>
+            </div>
+            <br><br>
+        </div>
+        <br><br><br>
+
+        
+        <!-- LINKEDIN ACCOUNTS HERE -->
+        <div style="background-color:rgb(47, 155, 255); height: fit-content; width: 100vw;opacity: 90%;box-shadow: 0px 15px 25px  rgb(0, 0, 0);">
+            <h1 style="text-align: center; color: rgb(255, 255, 255);font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+            ><br>Meet Creators<br><br></h1>
+        </div>
+        <br><br><br>
+
+
+        <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+
+        <div class="profile">
+            <!-- Bhushan -->
+            <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="iambhushan"><a class="LI-simple-link" href='https://in.linkedin.com/in/iambhushan?trk=profile-badge'>Bhushan Lokhande</a></div>
+            <!-- Suraj -->
+            <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="suraj-patil-1b4950153"><a class="LI-simple-link" href='https://in.linkedin.com/in/suraj-patil-1b4950153?trk=profile-badge'>Suraj Patil</a></div>
+
+        </div>
+
+
+
+    </wrapper>
+
+</body>
+</html>
