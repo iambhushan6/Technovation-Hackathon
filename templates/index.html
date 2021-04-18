@@ -18,7 +18,7 @@
     <wrapper>
         
         <div class="title">
-            <h4 style="text-align: center;">
+            <h4 style="text-align: center;color:black;">
                 3rd TECHNOVATION HACKATHON-SHARDA UNIVERSITY <BR> REAL ESTATE PRICE PREDICTION USING ML
             </h4>
         </div>
@@ -27,7 +27,7 @@
         
         <div class="boxform">
             <!-- FORM HERE -->
-            <form method="post" action="/">
+            <form method="post" action="/" style="color:black;">
                 <label form="sqft" >Area(Sq.ft) <br><br></label>
                 <input type="number" required id="sqft" name="sqft" value="1000" placeholder="Enter area in sqft: 2000"> <br><br>
 
@@ -76,12 +76,12 @@
                 
                 
                 <label form="submit"  ></label>
-                <input class="button" type="submit" id="submit" value="Estimate Price" >
+                <input style="color:black; border:black solid;" class="button" type="submit" id="submit" value="Estimate Price" >
     <!--            <output>Estimated Price</output><br>-->
                 
                 <!-- PREDICTION DONE HERE -->
                 {% if predicted_price %}
-                <br><br><h1 style="font-size: 1.8rem; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                <br><br><h1 style=" color:black; font-size: 1.8rem; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                     color: rgb(255, 255, 255);">Predicted Price<br>{{predicted_price}} Lakhs<br>
                     <br>Price per sqft<br> {{price_sqft}}K</h1>
                 
