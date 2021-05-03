@@ -1,6 +1,12 @@
 *{
     margin: 0%;
     padding: 0%;
+    a{
+        color:white;
+    }
+    a:hover {
+        color:darkgrey;
+    }
 }
 .title{
     background-color: rgba(255, 255, 255, 0.76);
