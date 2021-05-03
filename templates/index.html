@@ -6,10 +6,6 @@
     <title>House Price Prediction</title>
     <link rel="icon" href="home.png"  type="image" sizes="16x16">
     <link rel="stylesheet" href="../static/stylehackathon.css">
-
-
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#fafafa">
 
@@ -27,7 +23,7 @@
         
         <div class="boxform" style="margin:auto; align-items:center;text-align:center;">
             <!-- FORM HERE -->
-            <form method="post" action="/" style="color:black; border: 2px solid black;" >
+            <form method="post" action="/">
                 <label form="sqft" >Area(Sq.ft) <br><br></label>
                 <input type="number" required id="sqft" name="sqft" value="1000" placeholder="Enter area in sqft: 2000"> <br><br>
 
@@ -69,12 +65,12 @@
                 
                 
                 <label form="submit"  ></label>
-                <input style="color:black;border:solid black;" class="button" type="submit" id="submit" value="Estimate Price" >
+                <input style="border:solid black;" class="button" type="submit" id="submit" value="Estimate Price" >
     <!--            <output>Estimated Price</output><br>-->
                 
                 <!-- PREDICTION DONE HERE -->
                 {% if predicted_price %}
-                <br><br><h1 style="color:black; font-size: 1.8rem; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                <br><br><h1 style="color:white; font-size: 1.8rem; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                    "><strong>Predicted Price<br>{{predicted_price}} Lakhs</strong><br>
                     <br>Price per sqft<br> {{price_sqft}}K</h1>
                 
@@ -224,6 +220,7 @@
         </div>
         <br><br><br>
 
+        <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
         <div class="profile">
             <!-- Bhushan -->
