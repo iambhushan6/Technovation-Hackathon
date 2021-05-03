@@ -1,15 +1,4 @@
-*{
-    margin: 0%;
-    padding: 0%;
-    a{
-        color:white;
-        font-size:2rem;
-        font-weight: 400;
-    }
-    a:hover {
-        color:darkgrey;
-    }
-}
+
 .title{
     background-color: rgba(255, 255, 255, 0.76);
     text-align: center;
