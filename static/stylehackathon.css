@@ -3,6 +3,8 @@
     padding: 0%;
     a{
         color:white;
+        font-size:2rem;
+        font-weight: 400;
     }
     a:hover {
         color:darkgrey;
